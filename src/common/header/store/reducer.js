@@ -1,16 +1,17 @@
-const defaultState={
+import * as actionType from './actionType';
+import {fromJS} from 'immutable'; 
+const defaultState=fromJS({
     focused:false
-};
+});
 
 export default (state=defaultState,action)=>{
-    const NewState=JSON.parse(JSON.stringify(state));
     switch(action.type){
-        case 'search_focus':
-            NewState.focused=true;
-            return NewState;
-        case 'search_blur':
-            NewState.focused=false;
-            return NewState; 
+        case actionType.SERACH_FOCUS:
+        //immutable对象的set方法，会结合之前immutable对象的值
+        //和设置的值，返回一个全新的对象
+            return state.set('focused',true);
+        case actionType.SERACH_BLUR:
+            return state.set('focused', false);
         default:
             break;
             

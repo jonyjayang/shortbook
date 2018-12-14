@@ -1,7 +1,7 @@
 import React from 'react';
 import {CSSTransition} from 'react-transition-group';
 import {connect} from 'react-redux';
-import * as actionCreator from './store/actionCreator';
+import  {actionCreator} from './store';
 import {
 	HeaderWrapper,
 	Logo,
@@ -56,7 +56,8 @@ const Header=(props)=>{
 
 const mapStateToProps=(state)=>{
 	return {
-		focused:state.header.focused
+		//getIn方法
+		focused: state.getIn(['header', 'focused'])
 	}
 };
 const mapDispatchToProps=(dispach)=>{
