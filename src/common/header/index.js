@@ -17,7 +17,40 @@ import {
 	Addition,
 	Button
 } from './style';
-import { bindActionCreators } from 'redux';
+const getListArea=(show)=>{
+	if(show){
+		return (
+			< SearchInfo >
+					< SearchInfoTitle>
+						热门搜索
+						< SearchInfoSwitch > 换一批 </SearchInfoSwitch>
+					</SearchInfoTitle>
+					< div > 
+						<SearchInfoItem >
+							教育
+						</SearchInfoItem >
+						<SearchInfoItem >
+							文化
+						</SearchInfoItem >
+						<SearchInfoItem >
+							小说
+						</SearchInfoItem >
+						<SearchInfoItem >
+							教育
+						</SearchInfoItem >
+						<SearchInfoItem >
+							文化
+						</SearchInfoItem >
+						<SearchInfoItem >
+							小说
+						</SearchInfoItem >
+					</div>
+				</SearchInfo>
+		)
+	}else{
+		return null
+	}
+}
 const Header=(props)=>{
 	const {focused}=props;
 	return(
@@ -37,7 +70,9 @@ const Header=(props)=>{
 				<i className={focused?'focused iconfont zoom':'iconfont zoom'}>
 					&#xe614;
 				</i>
-			
+				{
+					getListArea(focused)
+				}
 			</SearchWrapper>
 		</Nav>
 		<Addition>
