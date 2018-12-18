@@ -1,7 +1,12 @@
 import * as actionType from './actionType';
 import {fromJS} from 'immutable'; 
 const defaultState=fromJS({
-    focused:false
+    focused:false,
+    list:[],
+    mouseIn:false,
+    //分页
+    page:1,
+    pagetotal:5
 });
 
 export default (state=defaultState,action)=>{
@@ -12,6 +17,14 @@ export default (state=defaultState,action)=>{
             return state.set('focused',true);
         case actionType.SERACH_BLUR:
             return state.set('focused', false);
+        case actionType.CHANGELIST:
+            return state.set('list',action.data);
+        case actionType.SERACH_ENTER:
+            return state.set('mouseIn',true);
+        case actionType.SERACH_LEAVE:
+            return state.set('mouseIn',false);
+        case actionType.SERACH_CHANGE:
+            return state.set('page',action.page);
         default:
             break;
             
