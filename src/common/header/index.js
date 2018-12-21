@@ -54,7 +54,10 @@ class Header extends Component{
 				< SearchInfo onMouseEnter={handleEnter} onMouseLeave={handleLeave} >
 						< SearchInfoTitle>
 							热门搜索
-							< SearchInfoSwitch onClick={()=>handlePage(page,pagetotal)}> 换一批 </SearchInfoSwitch>
+							< SearchInfoSwitch onClick={()=>handlePage(page,pagetotal, this.spinIcon)}> 
+							<i ref={(icon) => {this.spinIcon = icon}} className="iconfont spin">&#xe851;</i>
+							换一批 
+							</SearchInfoSwitch>
 						</SearchInfoTitle>
 						< div > 
 							{
@@ -71,7 +74,7 @@ class Header extends Component{
 
 
 	render(){
-		const {focused,handlefocuse,handleBlur}=this.props;
+		const {focused,handlefocuse,handleBlur, list}=this.props;
 		return(
 			<HeaderWrapper>
 			<Logo></Logo>
@@ -84,7 +87,7 @@ class Header extends Component{
 		
 				<SearchWrapper>
 					<CSSTransition in={focused} timeout={200} classNames="slide">
-						<NavSearch className={focused?'focused':''} onFocus={handlefocuse} onBlur={handleBlur}></NavSearch>
+						<NavSearch className={focused?'focused':''} onFocus={()=>handlefocuse(list)} onBlur={handleBlur}></NavSearch>
 					</CSSTransition>
 					<i className={focused?'focused iconfont zoom':'iconfont zoom'}>
 						&#xe614;
@@ -125,9 +128,10 @@ const mapStateToProps=(state)=>{
 };
 const mapDispatchToProps=(dispatch)=>{
 	return {			
-		handlefocuse(){
+		handlefocuse(list){
+			(list.size === 0) && dispatch(actionCreator.getList());
 			dispatch(actionCreator.searchFocus());
-			dispatch(actionCreator.getList());
+		
 		},
 		handleBlur(){
 			dispatch(actionCreator.searchBlur());
@@ -138,7 +142,16 @@ const mapDispatchToProps=(dispatch)=>{
 		handleLeave(){
 			dispatch(actionCreator.searchLeave())
 		},
-		handlePage(page,pagetotal){
+		handlePage(page,pagetotal,spin){
+			//css动画旋转效果
+			let originAngle = spin.style.transform.replace(/[^0-9]/ig, '');
+			if (originAngle) {
+				originAngle = parseInt(originAngle, 10);
+			}else {
+				originAngle = 0;
+			}
+			spin.style.transform = 'rotate(' + (originAngle + 360) + 'deg)';
+
 			if(page<pagetotal){
 				dispatch(actionCreator.changepage(page+1))
 			}else{
