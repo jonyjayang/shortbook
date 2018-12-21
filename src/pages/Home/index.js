@@ -10,7 +10,7 @@ import {
 	HomeLeft,
 	HomeRight
 } from './style';
-import { actionCreator } from '../../common/header/store';
+
 
 class Home extends Component {
     render(){
@@ -23,6 +23,8 @@ class Home extends Component {
 					<List />
                     </HomeLeft>
                     <HomeRight>
+                        <Recommend></Recommend>
+                        < Writer> </Writer>
                     </HomeRight>
                </HomeWrapper>
             </Fragment>

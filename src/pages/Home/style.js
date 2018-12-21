@@ -91,7 +91,7 @@ export const RecommendItem = styled.div`
 	background-size: contain;
 `;
 
-export const WriterWrapper = styled.div`
+export const WriterWrapper1 = styled.div`
 	width: 278px;
 	border: 1px solid #dcdcdc;
 	border-radius: 3px;
@@ -122,4 +122,38 @@ export const BackTop = styled.div`
 	text-align: center;
 	border: 1px solid #ccc;
 	font-size: 14px;
+`
+export const WriterWrapper=styled.ul`
+	    margin: 0 0 20 px;
+	    text - align: left;
+	    list - style: none;
+`
+
+export const WriterItem=styled.li`
+		margin-top:15px;
+		line-height:22px;
+		.avatar{
+			float:left;
+			width:48px;
+			height:48px;
+			margin-right:10px;
+		}
+		.avatar img{
+			    width: 100%;
+			    height: 100%;
+			    border:1px solid #ddd;
+			    border-radius: 50%;
+		}
+		.name{
+			    padding-top: 5px;
+			    margin-right: 60px;
+			    font-size: 14px;
+			    display:block;
+		}
+		p{
+			    margin-top: 2px;
+			    font-size: 12px;
+			    color: #969696;
+		}
+		
 `

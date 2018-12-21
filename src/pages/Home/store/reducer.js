@@ -3,13 +3,15 @@ import {fromJS} from 'immutable';
 const defaultState=fromJS({
     topicList: [],
 	articleList: [],
-	recommendList: [],
+    recommendList: [],
+    writerList:[]
 });
 const changeHomeData=(state,action)=>{
     return state.merge({
 		topicList: fromJS(action.topicList),
 		articleList: fromJS(action.articleList),
-		recommendList: fromJS(action.recommendList)
+        recommendList: fromJS(action.recommendList),
+        writerList: fromJS(action.writerList)
 	});
 }
 export default (state=defaultState,action)=>{
