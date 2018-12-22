@@ -9,7 +9,13 @@ const changeHomeData=(result)=>({
     articleList: result.articleList,
     recommendList: result.recommendList,
     writerList: result.writerList
+});
+const addHomeList=(list,nextpage)=>({
+    type:actionTypes.ADD_HOME_DATA,
+    list: fromJS(list),
+    nextpage
 })
+
 
 export const getHomeInfo=()=>{
     return (dispatch)=>{
@@ -20,3 +26,16 @@ export const getHomeInfo=()=>{
         })
     }
 }
+export const getMoreList=(page)=>{
+    return (dispatch)=>{
+        axios.get('/api/homeList.json?page='+page).then((res)=>{
+            const result=res.data.data;
+            dispatch(addHomeList(result,page+1));
+        })
+    }
+};
+export const changeScroll=(showScroll)=>({
+    type:actionTypes.CHANGE_SHOWSCROLL,
+    show:showScroll
+  
+})

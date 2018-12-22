@@ -34,6 +34,7 @@
 		"recommendList": [{
 			"id": 1,
 			"imgUrl": "//cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png"
+			
 		}, {
 			"id": 2,
 			"imgUrl": "//cdn2.jianshu.io/assets/web/banner-s-4-b70da70d679593510ac93a172dfbaeaa.png"
@@ -48,7 +49,7 @@
 		},
 		{
 			"id": 5,
-			"imgUrl": "//cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png"
+			"imgUrl": "https://cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png"
 		}
 	],
 		"writerList":[{
