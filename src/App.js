@@ -6,6 +6,7 @@ import { Icon } from './statics/iconfont/iconfont';
 import { BrowserRouter,Route} from 'react-router-dom';
 import Home from './pages/Home';
 import Detail from './pages/Detail';
+import Login from "./pages/Login";
 import store from './store';
 
 class App extends Component {
@@ -20,7 +21,8 @@ class App extends Component {
             <div>
               <Header></Header>
               <Route path='/' exact component={Home}></Route>
-              <Route path='/detail:id' exact component={Detail}></Route>
+              <Route path='/detail/:id' exact component={Detail}></Route>
+              <Route path='/login' exact component={Login}></Route>
             </div>
         </BrowserRouter>
         </Fragment>
