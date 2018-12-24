@@ -3,6 +3,7 @@ import {CSSTransition} from 'react-transition-group';
 import {connect} from 'react-redux';
 import  {actionCreator} from './store';
 import {Link} from 'react-router-dom'
+import { actionCreators as loginActionCreators } from '../../pages/Login/store'
 import {
 	HeaderWrapper,
 	Logo,
@@ -13,7 +14,6 @@ import {
 	SearchInfo,
 	SearchInfoTitle,
 	SearchInfoSwitch,
-	SearchInfoList,
 	SearchInfoItem,
 	Addition,
 	Button
@@ -175,7 +175,9 @@ const mapDispatchToProps=(dispatch)=>{
 			}
 		},
 		logout() {
-			// dispatch(loginActionCreators.logout())
+			dispatch(loginActionCreators.logout()) 
+
+			 
 		}
 	}
 };

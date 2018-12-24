@@ -13,10 +13,10 @@ class Writer extends Component {
               {
                 list.map((item)=>(
                   <WriterItem key={item.get('id')}>
-                      <a className='avatar'>
+                      <a href='/' className='avatar'>
                           <img src={item.get('imgUrl')} alt=""></img>
                       </a>
-                      <a className="name">{item.get('name')}</a>
+                      <a  href='/' className="name">{item.get('name')}</a>
                       < p > {item.get('introduce')} </p>
                   </WriterItem>
                 ))

@@ -7,10 +7,10 @@ const defaultState = fromJS({
 
 export default (state = defaultState, action) => {
     switch (action.type) {
-        case actionTypes.CHANGE_DETAIL_DATA:
-            return state.merge({
-                detailList: action.detailList
-            })
+        case actionTypes.ISLOGIN:
+            return state.merge({login: action.value})
+        case actionTypes.LOGOUT:
+            return state.merge({login: action.value})
         default:
             break;
 

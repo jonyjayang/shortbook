@@ -1,8 +1,6 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
-import {
-    fromJS
-} from 'immutable';
+
 
 const  changeDetail=(result)=>({
       type: actionTypes.CHANGE_DETAIL_DATA,

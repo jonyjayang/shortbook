@@ -132,6 +132,10 @@ export const WriterWrapper=styled.ul`
 export const WriterItem=styled.li`
 		margin-top:15px;
 		line-height:22px;
+		a{
+			text-decoration: none;
+			color:#333;
+		}
 		.avatar{
 			float:left;
 			width:48px;
